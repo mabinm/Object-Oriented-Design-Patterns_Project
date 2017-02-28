@@ -1,0 +1,26 @@
+PROJECT DETAILS:
+This project simulates a race between animals in climbing ladders set on walls. The strategy pattern
+is used to find out the strategy in deciding which animal is winning based on the smallest value of the
+Yaxis position. 
+
+The fastest climber is decided and an applause played on winning.
+
+In this implementation, what we have done is create an AnimalInterface which gets implemented by
+AbstractAnimation Class. The concrete classes of this abstract class create animated animals which are
+drawn based on the value of a flag that is passed to the draw method.
+The Decorator interface is implemented by LineFigure(used to draw the walls for climbing) and by
+AbstractLineDecorator which is used to add ladders to the walls. The speed of the climbing animals is
+randomly generated, thus the fastest climber is always different.
+
+EXECUTION:
+The client class, TestClimbStrategy is the class to be executed. This implements Applet interface. The
+size of the window is set to 1200,768. The starting Y position for all the climbers
+(Dog,Cat,Chicken,Sparrow and Rabbit) is set to 600 & the corresponding X positions to
+100,200,300,400 and 500 respectively. The concrete classes of the animals are all singleton classes and
+is invoked using the class's getInstance() method. The speed of the animals is randomly generated. In
+order to find out which animal is climbing fast, a raceStrategy() method of the LeaderTextStrategy is
+used. The raceStrategy() takes in the animals as its parameters & decides on the leader based on who is
+having the smallest Y axis value. The animals climb until the Y axis value is > 50. Once the animal has
+reached its finish mark, the corresponding flag is set to true. Once all the animal flags have been set to
+true, it means the competition is over & the fastest climber is declared. On declaration of the winner,
+along with the “FASTEST CLIMBER” being shown animatedly, an applause clip is also played.
